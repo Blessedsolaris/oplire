@@ -65,3 +65,8 @@ jobs:
           prerelease: ${{ contains(github.ref, 'beta') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: oplire-${{ matrix.os_name }}
+          path: release/*
